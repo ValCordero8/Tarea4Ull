@@ -1,0 +1,2 @@
+class horario:
+    pass
