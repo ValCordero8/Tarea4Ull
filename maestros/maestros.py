@@ -9,3 +9,6 @@ class Maestro:
         self.apellido = apellido
         self.rfc = rfc
         self.sueldo = sueldo
+
+    def __str__(self):
+        return f"{self.nombre} {self.apellido} {self.rfc} {self.sueldo}"

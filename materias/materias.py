@@ -7,4 +7,6 @@ class Materia:
         self.semestre = semestre
         self.creditos = creditos
 
-    
+        def __str__(self):
+        
+            return self.nombre    

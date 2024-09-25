@@ -4,7 +4,8 @@ from datetime import datetime
 from maestros.maestros import Maestro
 from materias.materias import Materia
 
-escuela = Escuela()
+escuela = Escuela() 
+#REVISAR ARCHIVOS
 
 while True:
     print("*** MINDBOX ***")
@@ -13,7 +14,13 @@ while True:
     print("3. Regitrar materia")
     print("4. Regitrar grupo")
     print("5. Regitrar horario")
-    print("6. Salir")
+    print("7. Mostrar maestros") 
+    print("8. Mostrar materias")
+    print("9. Mostrar grupos")
+    print("10. Eliminar estudiante")
+    print("11. Eliminar maestro")
+    print("12. Eliminar materia")
+    print("13. Salir")
     
     
     opcion = input("Ingresa una opcion para continuar: ")
@@ -67,6 +74,31 @@ while True:
         pass
     
     elif opcion == "6":
+        escuela.listar_estudiantes()
+        
+    elif opcion == "7":
+        escuela.listar_maestros()
+    
+    elif opcion == "8":
+        escuela.listar_materia()
+    elif opcion == "9":
+        escuela.listar_grupos()    
+
+    elif opcion == "10":
+        print("Seleccionaste la opcion eliminar estudiante")
+        numero_control = input("ingresa el no. control")
+        escuela.eliminar_estudiante(numero_control=numero_control)
+
+    elif opcion == "11":
+        print("Seleccionaste la opcion eliminar maestro")
+        numero_control_maestro = input("ingresa el no. control")
+        escuela.eliminar_maestro(numero_control_maestro=numero_control_maestro)
+    
+    elif opcion == "12":
+        print("Seleccionaste la opcion eliminar materia")
+        id = input("ingresa el id")
+        escuela.eliminar_materia(id=id)
+
+    elif opcion == "13":
         print("Hasta luego")
         break
-    
