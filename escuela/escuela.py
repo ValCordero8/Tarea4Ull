@@ -4,77 +4,108 @@ from grupo.grupo import Grupo
 from maestros.maestros import Maestro
 from materias.materias import Materia
 from datetime import datetime
-from  random import randint
-from typing import List
+from carrera.carrera import Carrera
+from semestre.semestre import Semestre
+from random import randint
 
 class Escuela:
     lista_estudiantes: List[Estudiante] = []
-    lista_maestro: List[Maestro] = []    
+    lista_maestros: List[Maestro] = []    
     lista_grupos: List[Grupo] = []    
-    lista_materias: List[Materia] = []  
+    lista_materias: List[Materia] = [] 
+    lista_carreras: List[Carrera] = []  
+    lista_semestres: List[Semestre] = [] 
     
-    #lista materias
-    
+    # Registrar estudiante
     def registrar_estudiante(self, estudiante: Estudiante):
-        self.lista_estudiantes.append(estudiante)
+        if estudiante not in self.lista_estudiantes:
+            self.lista_estudiantes.append(estudiante)
+            print(f"Estudiante registrado correctamente: {estudiante.nombre} {estudiante.apellido}")
+        else:
+            print("Estudiante ya registrado")
         
-    def generar_numero_control(self):
-        ##L - 2024- 09- longiud lista estudiante + 1 +random(0,10000)
-        numero_control = f"I{datetime.now().year}{datetime.now().month}{len(self.lista_estudiantes) + 1}{randint(1,1000)} "
+    # Generar n° de control para estudiantes
+    def generar_numero_control(self) -> str:
+        numero_control = f"I{datetime.now().year}{datetime.now().month}{len(self.lista_estudiantes) + 1}{randint(1, 1000)}"
         return numero_control
     
-    def registrar_maestro(self, maestros: Maestro):
-        self.lista_maestro.append(maestros)
+    # Registrar maestro
+    def registrar_maestro(self, maestro: Maestro):
+        self.lista_maestros.append(maestro)
     
-    def generar_numero_control_maestro(self, nombre: str, rfc: str):
-        ### M-2004-DIA-random(500,5000)-Primeras dos letras nombre- Ultimas dos letras RFC- Longitud lista profes +1
-        
-        numero_control_maestro = f"M{datetime.now().year}{datetime.now().day}{randint(500,5000)}{nombre[:2].upper()}{rfc[-2:].upper()}{len(self.lista_maestro) + 1}"
+    # Generar n° de control para maestros
+    def generar_numero_control_maestro(self, nombre: str, rfc: str) -> str:
+        numero_control_maestro = f"M{datetime.now().year}{datetime.now().day}{randint(500, 5000)}{nombre[:2].upper()}{rfc[-2:].upper()}{len(self.lista_maestros) + 1}"
         return numero_control_maestro
     
-    def generar_id_materia(self, nombrem: str, semestre: int, creditos: int):
-        id = f"MT{nombrem[-2:].upper()}{semestre}{creditos}{randint(100,1000)}"
-        #"MT {ultimos dos digitos del nombre, semestre, cantidad creditos, random del 1-1000}"
-        return id
+    # Generar ID de materia
+    def generar_id_materia(self, nombre: str, semestre: int, creditos: int) -> str:
+        id_materia = f"MT{nombre[-2:].upper()}{semestre}{creditos}{randint(100, 1000)}"
+        return id_materia
         
+    # Registrar materia
     def registrar_materia(self, materia: Materia):
         self.lista_materias.append(materia)
     
+    # Listar estudiantes
     def listar_estudiantes(self):
-        print("Estudiantes")
+        print("Estudiantes:")
         for estudiante in self.lista_estudiantes:
-            print (estudiante.mostrar_info_estudiante()) 
+            print(estudiante.mostrar_info_estudiante()) 
 
+    # Listar maestros
     def listar_maestros(self):
-        print("Mestros")
-        for maestro in self.lista_maestro:
-            print (maestro.mostrar_info_maestro()) 
+        print("Maestros:")
+        for maestro in self.lista_maestros:
+            print(maestro.mostrar_info_maestro()) 
 
-    def listar_materia(self):
-        print("Materias")
-        for materias in self.lista_materias:
-            print (materias.mostrar_info_materias()) 
+    # Listar semestres
+    def listar_semestres(self):
+        print("Semestres:")
+        for semestre in self.lista_semestres:
+            print(semestre.info_semestre()) 
 
+    # Listar grupos
+    def listar_grupos(self):
+        print("Grupos:")
+        for grupo in self.lista_grupos:
+            print(grupo.info_grupo()) 
+
+    # Listar carreras
+    def listar_carreras(self):
+        print("Carreras:")
+        for carrera in self.lista_carreras:
+            print(carrera.info_carrera()) 
+
+    # Listar materias
+    def listar_materias(self):
+        print("Materias:")
+        for materia in self.lista_materias:
+            print(materia.mostrar_info_materias()) 
+
+    # Eliminar estudiante
     def eliminar_estudiante(self, numero_control: str):
         for estudiante in self.lista_estudiantes:
             if estudiante.numero_control == numero_control:
                 self.lista_estudiantes.remove(estudiante)
-                print("estudiante eliminado")
+                print("Estudiante eliminado")
                 return
-        print(f"no se encontro estudiante con no. control: {numero_control}")
+        print(f"No se encontró estudiante con n° control: {numero_control}")
 
+    # Eliminar maestro
     def eliminar_maestro(self, numero_control_maestro: str):
-        for maestro in self.lista_estudiantes:
+        for maestro in self.lista_maestros:
             if maestro.numero_control == numero_control_maestro:
-                self.lista_maestro.remove(maestro)
-                print("estudiante eliminado")
+                self.lista_maestros.remove(maestro)
+                print("Maestro eliminado")
                 return
-        print(f"no se encontro maestro con no. control: {numero_control_maestro}")
+        print(f"No se encontró maestro con n° control: {numero_control_maestro}")
 
+    # Eliminar materia
     def eliminar_materia(self, id: str):
         for materia in self.lista_materias:
             if materia.id == id:
                 self.lista_materias.remove(materia)
-                print("materia eliminada")
+                print("Materia eliminada")
                 return
-        print(f"no se encontro materia con ese id: {id}")
+        print(f"No se encontró materia con ese ID: {id}")
