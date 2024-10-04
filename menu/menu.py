@@ -17,7 +17,7 @@ class Menu:
 
     def login(self):
         intentos = 0
-        while intentos < 3:
+        while intentos < 1:
             print("Bienvenido")
             print("Inicie sesión")
 
