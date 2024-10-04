@@ -8,7 +8,7 @@ class Materia:
         self.id = id
 
     def mostrar_info_materias(self):
-        info = (f"Instructor: {self.maestro}, "
+        info = (f"Maestro: {self.maestro}, "
                 f"Nombre Completo: {self.nombre}, "
                 f"Descripción: {self.descripcion}, "
                 f"Semestre: {self.semestre}, "

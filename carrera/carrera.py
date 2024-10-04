@@ -1,11 +1,7 @@
 from typing import List
-from estudiantes.estudiantes import Estudiante
 from semestre.semestre import Semestre
-from maestros.maestros import Maestro
-from materias.materias import Materia
-from datetime import datetime
 from  random import randint
-from typing import List
+
 
 class Carrera:
     matricula: str
@@ -25,5 +21,5 @@ class Carrera:
 
     def info_carrera(self):
         print("CARRERAS")
-        info = f"NOMBRE: {self.nombre}, MATRICULA: {self.matricula}, NO. CARRERA: {self.no_semestre}"
+        info = f"Nombre: {self.nombre}, Matricula: {self.matricula}, N. Carrera: {self.no_semestre}"
         return info

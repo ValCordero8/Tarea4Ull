@@ -1,5 +1,3 @@
-class Grupo: 
-    
 from typing import List
 from estudiantes.estudiantes import Estudiante
 from datetime import datetime

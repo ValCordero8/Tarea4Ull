@@ -23,6 +23,7 @@ class Semestre:
     def registrar_grupo_en_semestre(self, grupo: Grupo):
         self.grupo.append(grupo)
 
-    def info_semestre(self):  
+    def info_semestre(self): 
+        print("Semestre") 
         info = f"ID: {self.id}, Número: {self.numero}, ID Carrera: {self.id_carrera}"
         return info
