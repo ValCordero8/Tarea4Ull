@@ -6,10 +6,9 @@ from materias.materias import Materia
 from random import randint
 
 class Grupo: 
-    id: int
+    id: str
     estudiantes: List[Estudiante] = []
-    materias: List[Materia] = []
-    maestros: List[Maestro] = []
+    materia: List [Materia] = []
     tipo: chr
     id_semestre: str
 
@@ -25,3 +24,17 @@ class Grupo:
         print("GRUPO")
         info = f"ID: {self.id}, TIPO: {self.tipo}, ID SEMESTRE: {self.id_semestre}"
         return info
+    def registrar_estudiante(self, estdudiante: Estudiante)
+        self.estudiantes.append(estdudiante)
+
+    def registrar_materia(self, materia: Materia)
+        self.materias.append(Materia)
+        
+  
+
+    def mostrar_info_grupo_para_estudiante(self):
+       
+        print("Informacion del frupo {self.tipo}, del semestre {self.id_semestre}")
+        for materia in self.materia:
+         print(materia.mostrar_info_materia)
+

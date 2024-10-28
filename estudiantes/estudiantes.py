@@ -9,8 +9,8 @@ class Estudiante:
     curp: str
     fecha_nacimiento: datetime
 
-    def __init__(self, numero_control, nombre: str, apellido: str, curp: str, fecha_nacimiento: datetime, contrasenia: str, rol: Rol):
-        super().__init__(numero_control=numero_control, nombre=nombre, apellido=apellido, contrasenia=contrasenia, rol=Rol.ESTUDIANTE)
+    def __init__(self, numero_control_estudiante, nombre: str, apellido: str, curp: str, fecha_nacimiento: datetime, contrasenia: str, rol: Rol):
+        super().__init__(numero_control=numero_control_estudiante, nombre=nombre, apellido=apellido, contrasenia=contrasenia, rol=Rol.ESTUDIANTE)
         self.curp = curp
         self.fecha_nacimiento = fecha_nacimiento
         
